@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
+import ContactCard from "@/components/ui/ContactCard";
 
 import SmartTvs from "@/assets/SmartTvs.jpg";
 import leptops from "@/assets/leptops.jpg";
@@ -8,12 +9,11 @@ import surveillance from "@/assets/surveillance.jpg";
 import ups from "@/assets/ups.jpg";
 import officeSupplies from "@/assets/office.jpg";
 import furniture from "@/assets/furniture.jpg";
-import contactImg from "@/assets/contact.jpg";
+import contactUsHome from "@/assets/contactUsHome.jpg";
 
 const Home = () => {
     return (
         <div className="overflow-hidden">
-
             {/* 🔹 Hero Section with Fullscreen Video */}
             <section className="relative w-full min-h-screen text-white flex items-center justify-center overflow-hidden">
                 <video
@@ -42,8 +42,8 @@ const Home = () => {
                         transition={{ delay: 0.3 }}
                         className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-100"
                     >
-                        Delivering high-quality electronic, digitalt, and IT solutions for industries,
-                        education, and government sectors.
+                        Delivering high-quality electronic, digital, and IT solutions for
+                        industries, education, and government sectors.
                     </motion.p>
 
                     <motion.div
@@ -65,7 +65,8 @@ const Home = () => {
                     transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
                     className="inline-block text-sm font-medium px-4"
                 >
-                    Trusted by DRDO • AIIMS • Indian Railways • Government Projects • Enterprise Clients •
+                    Trusted by DRDO • AIIMS • Indian Railways • Government Projects •
+                    Enterprise Clients •
                 </motion.div>
             </section>
 
@@ -85,9 +86,9 @@ const Home = () => {
                     transition={{ delay: 0.2 }}
                     className="mt-4 text-gray-600 text-sm sm:text-base md:text-lg"
                 >
-                    Established in 2018, Digitalt Sixth Sense Pvt. Ltd. is a rapidly growing
-                    technology-driven company providing advanced electronic and IT solutions
-                    across India.
+                    Established in 2018, Digital Sixth Sense Pvt. Ltd. is a rapidly
+                    growing technology-driven company providing advanced electronic and IT
+                    solutions across India.
                 </motion.p>
             </section>
 
@@ -130,58 +131,35 @@ const Home = () => {
                 </div>
             </section>
 
-            {/* 🔹 CTA Section */}
-            <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-10 items-center">
-
-                    <div >
-                        <div>
+            {/* CTA Section */}
+            <section className="py-12 sm:py-16 px-4 sm:px-6 md:px-8 bg-gray-50">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 items-stretch">
+                    <div className="flex flex-col justify-center">
+                        <div className="w-full overflow-hidden rounded-2xl shadow-md mb-5 bg-white">
                             <img
-                                src={contactImg}
+                                src={contactUsHome}
                                 alt="Contact Us"
-                                className="rounded-lg shadow-lg w-full h-48 sm:h-64  object-fill mb-4"
+                                loading="lazy"
+                                decoding="async"
+                                fetchPriority="low"
+                                className="w-full h-64 sm:h-72 md:h-80 object-cover"
                             />
                         </div>
-                        <h2 className="text-2xl sm:text-3xl font-bold mb-2">
+
+                        <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold mb-3 text-gray-900">
                             Ready to Transform Your Business?
                         </h2>
-                        <p className="text-gray-700 text-sm sm:text-base">
-                            Get in touch with us for modern IT and electronic solutions. We help businesses grow with the latest technology.
+
+                        <p className="text-gray-600 text-sm sm:text-base leading-7 max-w-xl">
+                            Get in touch with us for modern IT and electronic solutions. We
+                            help businesses grow with the latest technology, reliable support,
+                            and tailored services.
                         </p>
                     </div>
 
-                    <div className="bg-white text-black rounded-xl p-4 sm:p-6 border border-gray-200 shadow-md">
-                        <h3 className="text-xl text-center font-semibold mb-4">
-                            Contact Us
-                        </h3>
-                        <form className="space-y-4">
-                            <input
-                                type="text"
-                                placeholder="Enter Name"
-                                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                            />
-                            <input
-                                type="email"
-                                placeholder="Enter Email"
-                                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                            />
-                            <textarea
-                                placeholder="Your Message"
-                                rows="4"
-                                className="w-full border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500 text-sm sm:text-base"
-                            ></textarea>
-                            <button
-                                type="submit"
-                                className="w-full bg-blue-500 text-white py-2 sm:py-3 rounded-md hover:bg-blue-600 transition text-sm sm:text-base"
-                            >
-                                Send Message
-                            </button>
-                        </form>
-                    </div>
-
+                    <ContactCard />
                 </div>
             </section>
-
         </div>
     );
 };

@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 import ElectronicImg from "../../assets/electronicImg.jpg";
 import { Button } from "@/components/ui/button";
 
@@ -30,46 +31,46 @@ const categories = [
 ];
 
 function Electronic() {
+  const navigate = useNavigate();
+
   return (
     <div className="min-h-screen bg-slate-50 text-gray-900">
-      {/* Hero Section */}
+
+      {/* 🔹 Hero Section */}
       <section className="relative overflow-hidden">
-        <div className="relative h-[60vh] md:h-[72vh] w-full">
+        <div className="relative h-[60vh] md:h-[70vh] w-full">
           <img
             src={ElectronicImg}
             alt="Electronic Products"
             className="w-full h-full object-cover"
-            fetchPriority="high"
-            decoding="async"
           />
 
-          <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/55 to-black/35" />
+          <div className="absolute inset-0 bg-black/60" />
 
-          <div className="absolute inset-0 flex items-center justify-center text-center">
-            <div className="px-6 max-w-3xl">
-              <div className="inline-flex items-center rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md mb-5">
-                Smart Electronics Collection
-              </div>
-
-              <h1 className="text-white text-4xl md:text-6xl font-bold leading-tight mb-5">
+          <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+            <div className="max-w-3xl">
+              <h1 className="text-white text-4xl md:text-6xl font-bold mb-4">
                 Explore Latest Electronics
               </h1>
 
-              <p className="text-gray-200 text-base md:text-lg max-w-2xl mx-auto mb-8 leading-7">
-                Discover top-quality laptops, smart TVs, desktops, and modern
-                electronic products designed to upgrade your lifestyle and work.
+              <p className="text-gray-200 mb-6">
+                Discover modern electronic products designed for performance and lifestyle.
               </p>
 
-              <div className="flex flex-wrap justify-center gap-4">
-                <Button className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl shadow-lg">
+              <div className="flex justify-center gap-4">
+                <Button
+                  onClick={() => navigate("/products")}
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl"
+                >
                   Shop Now
                 </Button>
 
                 <Button
                   variant="outline"
+                  onClick={() => navigate("/products")}
                   className="border-white text-white bg-white/10 hover:bg-white/20 rounded-xl px-6 py-3"
                 >
-                  Explore Categories
+                  Browse Products
                 </Button>
               </div>
             </div>
@@ -77,104 +78,97 @@ function Electronic() {
         </div>
       </section>
 
-      {/* Categories Section */}
+      {/* 🔹 Categories */}
       <section className="py-14 px-6 md:px-16">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <div className="inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-medium text-blue-700 mb-4">
-              Our Categories
-            </div>
+        <div className="max-w-7xl mx-auto text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Our Categories
+          </h2>
+          <p className="mt-3 text-gray-600">
+            Explore our top categories built for modern needs.
+          </p>
+        </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Choose from top electronic categories
-            </h2>
-
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-              Browse premium categories built for performance, entertainment,
-              and modern daily needs.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {categories.map((category) => (
-              <div
-                key={category.name}
-                className="group bg-white rounded-3xl overflow-hidden border border-gray-200 shadow-sm hover:shadow-2xl transition duration-300"
-              >
-                <div className="overflow-hidden">
-                  <img
-                    src={category.img}
-                    alt={category.name}
-                    decoding="async"
-                    className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
-
-                <div className="p-5 text-center">
-                  <h3 className="text-xl font-semibold text-gray-900">
-                    {category.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-6">
-                    {category.desc}
-                  </p>
-                  <Button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl">
-                    View Category
-                  </Button>
-                </div>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          {categories.map((category) => (
+            <div
+              key={category.name}
+              onClick={() => navigate("/products")}
+              className="cursor-pointer group bg-white rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition duration-300"
+            >
+              <div className="overflow-hidden">
+                <img
+                  src={category.img}
+                  alt={category.name}
+                  className="h-52 w-full object-cover group-hover:scale-110 transition duration-500"
+                />
               </div>
-            ))}
-          </div>
+
+              <div className="p-5 text-center">
+                <h3 className="text-lg font-semibold">
+                  {category.name}
+                </h3>
+
+                <p className="text-sm text-gray-600 mt-2">
+                  {category.desc}
+                </p>
+
+                <Button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    navigate("/products");
+                  }}
+                  className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
+                >
+                  View Category
+                </Button>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
 
-      {/* Featured Products Section */}
+      {/* 🔹 Featured */}
       <section className="py-14 px-6 md:px-16 bg-white">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-10">
-            <div className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 mb-4">
-              Featured Products
-            </div>
+        <div className="max-w-7xl mx-auto text-center mb-10">
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Featured Products
+          </h2>
+          <p className="mt-3 text-gray-600">
+            Premium selections for modern users.
+          </p>
+        </div>
 
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Popular electronic selections
-            </h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+          {categories.map((category) => (
+            <div
+              key={category.name}
+              className="group bg-slate-50 rounded-3xl overflow-hidden shadow-md hover:shadow-xl transition"
+            >
+              <img
+                src={category.img}
+                alt={category.name}
+                className="h-52 w-full object-cover group-hover:scale-110 transition duration-500"
+              />
 
-            <p className="mt-4 text-gray-600 max-w-2xl mx-auto">
-              Discover our highlighted electronic products with stylish design,
-              trusted quality, and everyday reliability.
-            </p>
-          </div>
+              <div className="p-5">
+                <h3 className="font-semibold text-lg">
+                  {category.name}
+                </h3>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
-            {categories.map((category) => (
-              <div
-                key={`${category.name}-featured`}
-                className="group rounded-3xl overflow-hidden border border-gray-200 bg-slate-50 shadow-sm hover:shadow-xl transition duration-300"
-              >
-                <div className="overflow-hidden">
-                  <img
-                    src={category.img}
-                    alt={category.name}
-                    decoding="async"
-                    className="h-52 w-full object-cover transition duration-500 group-hover:scale-105"
-                  />
-                </div>
+                <p className="text-sm text-gray-600 mt-2">
+                  Premium quality products for better performance.
+                </p>
 
-                <div className="p-5">
-                  <h3 className="text-lg font-semibold text-gray-900">
-                    {category.name}
-                  </h3>
-                  <p className="mt-2 text-sm text-gray-600 leading-6">
-                    Premium quality {category.name.toLowerCase()} for modern use
-                    and better performance.
-                  </p>
-                  <Button className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl">
-                    View Details
-                  </Button>
-                </div>
+                <Button
+                  onClick={() => navigate("/products")}
+                  className="mt-4 w-full bg-blue-600 hover:bg-blue-700 text-white rounded-xl"
+                >
+                  View Details
+                </Button>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </section>
     </div>

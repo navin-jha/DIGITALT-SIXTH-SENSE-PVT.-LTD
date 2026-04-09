@@ -1,7 +1,8 @@
 import React from "react";
-import StationaryImg from "../../assets/stationaryImg.jpg";
+import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
+import StationaryImg from "../../assets/stationaryImg.jpg";
 import PaperStationary1 from "../../assets/paperStationary1.jpg";
 import PaperStationary2 from "../../assets/paperStationary2.jpg";
 import PaperStationary3 from "../../assets/paperStationary3.jpg";
@@ -27,19 +28,19 @@ const categoryList = [
 
 const featuredItems = [
     {
-        id: "paper-stationary-1",
+        id: "paper-stationery-1",
         title: "Notebook Collection",
         image: PaperStationary1,
         desc: "Durable and stylish notebooks designed for everyday writing and study.",
     },
     {
-        id: "paper-stationary-2",
+        id: "paper-stationery-2",
         title: "Writing Essentials",
         image: PaperStationary2,
         desc: "Quality pens, pencils, and stationery items for smooth daily use.",
     },
     {
-        id: "paper-stationary-3",
+        id: "paper-stationery-3",
         title: "Office & Art Supplies",
         image: PaperStationary3,
         desc: "A smart selection of office and creative essentials for every workspace.",
@@ -47,6 +48,8 @@ const featuredItems = [
 ];
 
 function PaperStationary() {
+    const navigate = useNavigate();
+
     return (
         <div className="min-h-screen bg-slate-50 text-gray-900">
             {/* Hero Section */}
@@ -54,7 +57,7 @@ function PaperStationary() {
                 <div className="relative h-[58vh] md:h-[70vh] w-full">
                     <img
                         src={StationaryImg}
-                        alt="Paper & Stationary"
+                        alt="Paper & Stationery"
                         className="w-full h-full object-cover"
                         fetchPriority="high"
                         decoding="async"
@@ -62,14 +65,14 @@ function PaperStationary() {
 
                     <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
 
-                    <div className="absolute inset-0 flex items-center justify-center text-center">
-                        <div className="max-w-3xl px-6">
+                    <div className="absolute inset-0 flex items-center justify-center text-center px-4">
+                        <div className="max-w-3xl">
                             <div className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md">
                                 Office & School Essentials
                             </div>
 
                             <h1 className="text-4xl md:text-6xl font-bold text-white leading-tight">
-                                Paper & Stationary
+                                Paper & Stationery
                             </h1>
 
                             <p className="mt-5 max-w-2xl mx-auto text-sm md:text-lg leading-7 text-gray-200">
@@ -79,11 +82,15 @@ function PaperStationary() {
                             </p>
 
                             <div className="mt-8 flex flex-wrap justify-center gap-4">
-                                <Button className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow-lg">
+                                <Button
+                                    onClick={() => navigate("/products")}
+                                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow-lg"
+                                >
                                     Shop Now
                                 </Button>
 
                                 <Button
+                                    onClick={() => navigate("/products")}
                                     variant="outline"
                                     className="border-white text-white bg-white/10 hover:bg-white/20 rounded-xl px-6 py-3"
                                 >
@@ -117,8 +124,8 @@ function PaperStationary() {
                         {categoryList.map((item) => (
                             <div
                                 key={item.name}
-                                className="rounded-3xl border border-gray-200 bg-white p-6
-                                 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
+                                onClick={() => navigate("/products")}
+                                className="cursor-pointer rounded-3xl border border-gray-200 bg-white p-6 text-center shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-xl"
                             >
                                 <h3 className="text-xl font-semibold text-gray-900">
                                     {item.name}
@@ -126,7 +133,13 @@ function PaperStationary() {
                                 <p className="mt-3 text-sm leading-6 text-gray-600">
                                     {item.desc}
                                 </p>
-                                <Button className="mt-5 w-full bg-green-600 hover:bg-green-700 text-white rounded-xl">
+                                <Button
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate("/products");
+                                    }}
+                                    className="mt-5 w-full bg-green-600 hover:bg-green-700 text-white rounded-xl"
+                                >
                                     Explore
                                 </Button>
                             </div>
@@ -157,7 +170,8 @@ function PaperStationary() {
                         {featuredItems.map((item) => (
                             <div
                                 key={item.id}
-                                className="group overflow-hidden rounded-3xl border border-gray-200 bg-slate-50 shadow-sm transition duration-300 hover:shadow-2xl"
+                                onClick={() => navigate("/products")}
+                                className="group cursor-pointer overflow-hidden rounded-3xl border border-gray-200 bg-slate-50 shadow-sm transition duration-300 hover:-translate-y-1 hover:shadow-2xl"
                             >
                                 <div className="overflow-hidden">
                                     <img
@@ -176,7 +190,13 @@ function PaperStationary() {
                                         {item.desc}
                                     </p>
 
-                                    <Button className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white rounded-xl">
+                                    <Button
+                                        onClick={(e) => {
+                                            e.stopPropagation();
+                                            navigate("/products");
+                                        }}
+                                        className="mt-4 w-full bg-green-600 hover:bg-green-700 text-white rounded-xl"
+                                    >
                                         View Details
                                     </Button>
                                 </div>

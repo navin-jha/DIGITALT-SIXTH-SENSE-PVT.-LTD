@@ -6,11 +6,9 @@ const categories = [
     { name: "Interactive Panel", slug: "panel" },
     { name: "Laptop", slug: "laptop" },
     { name: "Desktop", slug: "desktop" },
-    { name: "Smart Tv", slug: "smart-tv" },
-    { name: "Medical Equipment", slug: "medical" },
+    { name: "Electronic Accessories", slug: "electronic" },
     { name: "Paper Stationary", slug: "stationary" },
     { name: "Furniture", slug: "furniture" },
-    { name: "Wi-Fi Surveillance", slug: "wifi" },
     { name: "Solar Products", slug: "solar" },
 ];
 

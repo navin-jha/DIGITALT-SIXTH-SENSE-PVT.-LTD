@@ -197,7 +197,7 @@ function About() {
 
                             <div className="grid gap-6 md:grid-cols-2 p-5 md:p-9">
                                 {[
-                                    { number: 10, label: "Years Of Experiences" },
+                                    { number: 7, label: "Years Of Experiences" },
                                     { number: 49, label: "Professional Staffs" },
                                     { number: 276, label: "Happy Clients" },
                                     { number: 15, label: "New Offices" },
@@ -216,7 +216,7 @@ function About() {
                             </div>
                         </div>
                     </div>
-                    
+
                     {/* Why Choose Us Section */}
                     <div className="flex flex-col items-center gap-12 md:flex-row">
                         <motion.div
@@ -250,7 +250,7 @@ function About() {
                             transition={{ duration: 0.8 }}
                         >
                             <img
-                                src={WhyChoose} 
+                                src={WhyChoose}
                                 alt="Why Choose Us"
                                 className="w-full rounded-xl shadow-lg object-cover"
                             />
@@ -270,15 +270,17 @@ function About() {
                                     desc: "The visionary leader driving innovation, strategy, and success with expertise and creativity.",
                                 },
                                 {
+                                    name: "Ankit Gupta",
+                                    role: "Director",
+                                    desc: "Driving revenue through strong client relationships and strategic selling.",
+                                },
+
+                                {
                                     name: "Amit Adarsh",
                                     role: "COO",
                                     desc: "Driving growth through strategic planning and operational excellence.",
                                 },
-                                {
-                                    name: "Ankit Gupta",
-                                    role: "Sales Manager",
-                                    desc: "Driving revenue through strong client relationships and strategic selling.",
-                                },
+
                                 {
                                     name: "Ayush",
                                     role: "Finance Executive",

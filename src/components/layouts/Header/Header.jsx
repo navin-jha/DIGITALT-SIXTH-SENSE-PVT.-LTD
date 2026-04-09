@@ -1,5 +1,4 @@
 import React, { useState, useRef } from "react";
-import { Button } from "@/components/ui/button";
 import { NavLink, useNavigate } from "react-router-dom";
 import { HiMenu, HiX, HiChevronDown } from "react-icons/hi";
 
@@ -15,7 +14,7 @@ const Header = () => {
     { name: "Laptop", path: "/products/laptop" },
     { name: "Desktop", path: "/products/desktop" },
     { name: "Electronic Products", path: "/products/Electronic" },
-    { name: "Paper Stationary", path: "/products/stationary" },
+    { name: "Paper Stationery", path: "/products/stationary" },
     { name: "Furniture", path: "/products/furniture" },
     { name: "Solar Products", path: "/products/solar" },
   ];
@@ -32,43 +31,44 @@ const Header = () => {
   };
 
   const navLinkClass = ({ isActive }) =>
-    `relative text-sm font-medium transition duration-300 ${isActive
-      ? "text-blue-600"
-      : "text-slate-700 hover:text-blue-600"
+    `relative text-sm font-semibold transition duration-300 ${isActive ? "text-blue-600" : "text-slate-700 hover:text-blue-600"
     }`;
 
   return (
-    <header className="sticky top-0 z-50 border-b border-white/20 bg-white/80 backdrop-blur-xl shadow-sm">
+    <header className="sticky top-0 z-50 border-b border-slate-200/80 bg-white/90 backdrop-blur-xl shadow-sm">
       <div className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
-
         {/* Logo */}
-        <NavLink to="/" className="flex items-center gap-3 group">
-          <div className="flex items-center justify-center rounded-2xl bg-gradient-to-br p-2 shadow-sm ring-1 ring-blue-100">
+        <NavLink to="/" className="flex items-center gap-2 group">
+
+          {/* Bigger Logo */}
+          <div className="flex items-center justify-center">
             <img
               src="/logo.png"
               alt="Logo"
-              className="h-10 w-auto sm:h-12 object-contain"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
 
+          {/* Company Name */}
           <div className="hidden sm:block leading-tight">
-            <h1 className="text-sm lg:text-base font-extrabold tracking-wide text-slate-900 group-hover:text-blue-600 transition">
-              DIGITALT SIXTH SENSE
+            <h1 className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-slate-900 group-hover:text-blue-600 transition">
+              DIGITAL SIXTH SENSE
             </h1>
-            <p className="text-xs text-slate-500 font-medium">
+            <p className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wider">
               PVT. LTD.
             </p>
           </div>
+
         </NavLink>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8">
+        <nav className="hidden md:flex items-center gap-8 lg:gap-10">
           <NavLink to="/" className={navLinkClass}>
             {({ isActive }) => (
               <span className="relative">
                 Home
                 {isActive && (
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-full rounded-full bg-blue-600" />
+                  <span className="absolute -bottom-2 left-0 h-[2.5px] w-full rounded-full bg-blue-600" />
                 )}
               </span>
             )}
@@ -79,30 +79,18 @@ const Header = () => {
               <span className="relative">
                 About
                 {isActive && (
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-full rounded-full bg-blue-600" />
+                  <span className="absolute -bottom-2 left-0 h-[2.5px] w-full rounded-full bg-blue-600" />
                 )}
               </span>
             )}
           </NavLink>
 
-          <NavLink to="/contact" className={navLinkClass}>
-            {({ isActive }) => (
-              <span className="relative">
-                Contact
-                {isActive && (
-                  <span className="absolute -bottom-2 left-0 h-[2px] w-full rounded-full bg-blue-600" />
-                )}
-              </span>
-            )}
-          </NavLink>
-
-          {/* Products Dropdown */}
           <div
             className="relative"
             onMouseEnter={handleEnter}
             onMouseLeave={handleLeave}
           >
-            <button className="flex items-center gap-1 text-sm font-medium text-slate-700 hover:text-blue-600 transition">
+            <button className="flex items-center gap-1 text-sm font-semibold text-slate-700 hover:text-blue-600 transition">
               Products
               <HiChevronDown
                 className={`text-base transition-transform duration-300 ${showDropdown ? "rotate-180" : ""
@@ -111,9 +99,9 @@ const Header = () => {
             </button>
 
             <div
-              className={`absolute left-0 top-full mt-3 w-72 rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-xl shadow-2xl overflow-hidden transition-all duration-200 ${showDropdown
-                  ? "opacity-100 visible translate-y-0"
-                  : "opacity-0 invisible -translate-y-2"
+              className={`absolute left-1/2 top-full mt-4 w-72 -translate-x-1/2 rounded-2xl border border-slate-200 bg-white/95 backdrop-blur-xl shadow-2xl overflow-hidden transition-all duration-200 ${showDropdown
+                ? "opacity-100 visible translate-y-0"
+                : "opacity-0 invisible -translate-y-2"
                 }`}
             >
               <div className="p-2">
@@ -133,20 +121,18 @@ const Header = () => {
               </div>
             </div>
           </div>
-        </nav>
 
-        {/* Desktop Buttons */}
-        <div className="hidden md:flex items-center gap-3">
-          <Button
-            variant="outline"
-            className="rounded-full border-slate-300 px-5 hover:border-blue-500 hover:text-blue-600 transition"
-          >
-            Login
-          </Button>
-          <Button className="rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 px-5 text-white shadow-md hover:shadow-xl hover:scale-[1.02] transition-all duration-300">
-            Signup
-          </Button>
-        </div>
+          <NavLink to="/contact" className={navLinkClass}>
+            {({ isActive }) => (
+              <span className="relative">
+                Contact
+                {isActive && (
+                  <span className="absolute -bottom-2 left-0 h-[2.5px] w-full rounded-full bg-blue-600" />
+                )}
+              </span>
+            )}
+          </NavLink>
+        </nav>
 
         {/* Mobile Toggle */}
         <div className="md:hidden">
@@ -207,15 +193,6 @@ const Header = () => {
                 </button>
               ))}
             </div>
-          </div>
-
-          <div className="flex gap-3 pt-2">
-            <Button variant="outline" className="flex-1 rounded-full">
-              Login
-            </Button>
-            <Button className="flex-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white">
-              Signup
-            </Button>
           </div>
         </div>
       </div>

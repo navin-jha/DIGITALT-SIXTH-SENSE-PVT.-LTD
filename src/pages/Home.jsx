@@ -3,13 +3,13 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ContactCard from "@/components/ui/ContactCard";
 
-import SmartTvs from "/src/assets/SmartTvs.jpg";
-import leptops from "/src/assets/leptops.jpg";
-import surveillance from "/src/assets/surveillance.jpg";
-import ups from "/src/assets/ups.jpg";
-import officeSupplies from "/src/assets/office.jpg";
-import furniture from "/src/assets/furniture.jpg";
-import contactUsHome from "/src/assets/contactUsHome.jpg";
+import SmartTvs from "../assets/SmartTvs.jpg";
+import leptops from "../assets/leptops.jpg";
+import surveillance from "../assets/surveillance.jpg";
+import ups from "../assets/ups.jpg";
+import officeSupplies from "../assets/office.jpg";
+import furniture from "../assets/Furniture.jpg";
+import contactUsHome from "../assets/contactUsHome.jpg";
 
 const Home = () => {
     return (

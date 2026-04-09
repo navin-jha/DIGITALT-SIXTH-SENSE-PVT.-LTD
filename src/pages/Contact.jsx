@@ -8,12 +8,12 @@ import {
 } from "react-icons/fa";
 import { ArrowRight, Building2, Mail, PhoneCall } from "lucide-react";
 
-import contactUs from "/src/assets/contactUs.jpg";
-import headOffice from "/src/assets/headOffice.png";
-import CoordinationOffice from "/src/assets/CoordinationOffice.png";
-import BranchOffice from "/src/assets/BranchOffice.png";
-import RegionalOffice from "/src/assets/RegionalOffice.png";
-import RegisteredOffice from "/src/assets/RegisteredOffice.png";
+import contactUs from "../assets/contactUs.jpg";
+import headOffice from "../assets/headOffice.png";
+import CoordinationOffice from "../assets/CoordinationOffice.png";
+import BranchOffice from "../assets/BranchOffice.png";
+import RegionalOffice from "../assets/RegionalOffice.png";
+import RegisteredOffice from "../assets/RegisteredOffice.png";
 
 const offices = [
     {

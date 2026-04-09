@@ -1,8 +1,8 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Laptop, ArrowRight, CheckCircle2, Briefcase, Cpu } from "lucide-react";
-import Leptops from "/src/assets/leptops.jpg";
-import leptopsCard from "/src/assets/leptopsCard.jpg";
+import Leptops from "../../assets/leptops.jpg";
+import leptopsCard from "../../assets/leptopsCard.jpg";
 
 function Leptop() {
   const navigate = useNavigate();

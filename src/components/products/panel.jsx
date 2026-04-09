@@ -9,12 +9,12 @@ import {
   ArrowRight,
 } from "lucide-react";
 
-import InteractivePanelDisplay from "../../assets/InteractivePanelDisplay.jpg";
-import interactivePanel from "../../assets/interactivePanel.jpg";
-import BetterPresentation from "../../assets/BetterPresentation.jpg";
-import TransferringInformation from "../../assets/TransferringInformation.jpg";
-import InteractiveClassroom from "../../assets/InteractiveClassroom.jpg";
-import VisualAppeal from "../../assets/VisualAppeal.jpg";
+import InteractivePanelDisplay from "/src/assets/InteractivePanelDisplay.jpg";
+import interactivePanel from "/src/assets/interactivePanel.jpg";
+import BetterPresentation from "/src/assets/BetterPresentation.jpg";
+import TransferringInformation from "/src/assets/TransferringInformation.jpg";
+import InteractiveClassroom from "/src/assets/InteractiveClassroom.jpg";
+import VisualAppeal from "/src/assets/VisualAppeal.jpg";
 
 function InteractivePanel() {
   const navigate = useNavigate();

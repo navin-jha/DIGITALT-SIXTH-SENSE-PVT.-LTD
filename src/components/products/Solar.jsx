@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-import SolarImg from "../../assets/solarImg.jpg";
-import HighEfficiencyPanel from "../../assets/highEfficiencyPanel.jpg";
-import SolarInverter from "../../assets/solarInverter.jpg";
-import SolarBattery from "../../assets/solarBattery.jpg";
+import SolarImg from "/src/assets/solarImg.jpg";
+import HighEfficiencyPanel from "/src/assets/highEfficiencyPanel.jpg";
+import SolarInverter from "/src/assets/solarInverter.jpg";
+import SolarBattery from "/src/assets/solarBattery.jpg";
 
 function Solar() {
     const navigate = useNavigate();

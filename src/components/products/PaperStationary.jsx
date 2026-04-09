@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-import StationaryImg from "../../assets/stationaryImg.jpg";
-import PaperStationary1 from "../../assets/paperStationary1.jpg";
-import PaperStationary2 from "../../assets/paperStationary2.jpg";
-import PaperStationary3 from "../../assets/paperStationary3.jpg";
+import StationaryImg from "/src/assets/stationaryImg.jpg";
+import PaperStationary1 from "/src/assets/paperStationary1.jpg";
+import PaperStationary2 from "/src/assets/paperStationary2.jpg";
+import PaperStationary3 from "/src/assets/paperStationary3.jpg";
 
 const categoryList = [
     {

@@ -2,10 +2,10 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 
-import FurnitureImg from "../../assets/furnitureImg.jpg";
-import ModernSofa from "../../assets/modernSofa.jpg";
-import WoodenChair from "../../assets/woodenChair.jpg";
-import LuxuryBed from "../../assets/luxuryBed.jpg";
+import FurnitureImg from "/src/assets/furnitureImg.jpg";
+import ModernSofa from "/src/assets/modernSofa.jpg";
+import WoodenChair from "/src/assets/woodenChair.jpg";
+import LuxuryBed from "/src/assets/luxuryBed.jpg";
 
 function Furniture() {
     const navigate = useNavigate();

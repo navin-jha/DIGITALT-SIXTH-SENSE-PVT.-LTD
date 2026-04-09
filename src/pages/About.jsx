@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import aboutus from "@/assets/aboutus.jpg";
-import businessImg from "@/assets/businessImg.jpg";
-import Ourmission from "@/assets/Ourmission.jpg";
-import OurVision from "@/assets/OurVision.jpg";
-import OurPrincipal from "@/assets/OurPrincipal.jpg";
-import companyData from "@/assets/companyData.jpg";
-import WhyChoose from "@/assets/WhyChoose.jpg";
+import aboutus from "/src/assets/aboutus.jpg";
+import businessImg from "/src/assets/businessImg.jpg";
+import Ourmission from "/src/assets/Ourmission.jpg";
+import OurVision from "/src/assets/OurVision.jpg";
+import OurPrincipal from "/src/assets/OurPrincipal.jpg";
+import companyData from "/src/assets/companyData.jpg";
+import WhyChoose from "/src/assets/WhyChoose.jpg";
 
 function About() {
     return (

@@ -1,11 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-import ElectronicImg from "../../assets/electronicImg.jpg";
+import ElectronicImg from "/src/assets/electronicImg.jpg";
 import { Button } from "@/components/ui/button";
 
-import LatestElectronics2 from "../../assets/latestElectronics1.jpg";
-import LatestElectronics3 from "../../assets/latestElectronics2.jpg";
-import LatestElectronics4 from "../../assets/latestElectronics3.jpg";
+import LatestElectronics3 from "/src/assets/latestElectronics2.jpg";
+import LatestElectronics4 from "/src/assets/latestElectronics3.jpg";
+import LatestElectronics2 from "/src/assets/latestElectronics1.jpg";
 
 const categories = [
   {

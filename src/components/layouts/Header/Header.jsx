@@ -52,7 +52,7 @@ const Header = () => {
           {/* Company Name */}
           <div className="hidden sm:block leading-tight">
             <h1 className="text-sm sm:text-base md:text-lg font-bold tracking-wide text-slate-900 group-hover:text-blue-600 transition">
-              DIGITAL SIXTH SENSE
+              DIGITALT SIXTH SENSE
             </h1>
             <p className="text-[10px] sm:text-xs text-slate-500 font-medium tracking-wider">
               PVT. LTD.

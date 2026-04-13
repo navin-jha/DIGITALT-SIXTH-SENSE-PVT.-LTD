@@ -89,12 +89,12 @@ function Desktop() {
             </p>
 
             <div className="mt-8 flex flex-wrap gap-4">
-              <button 
+              <button
                 onClick={() => navigate("/products")}
                 className="rounded-2xl bg-blue-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-blue-200 transition hover:-translate-y-0.5 hover:bg-blue-700">
                 Explore Products
               </button>
-              <button 
+              <button
                 onClick={() => navigate("/contact")}
                 className="rounded-2xl border border-gray-300 bg-white px-6 py-3 text-sm font-semibold text-gray-700 transition hover:border-blue-300 hover:text-blue-600">
                 Contact Sales
@@ -265,7 +265,7 @@ function Desktop() {
                   <button
                     onClick={(e) => {
                       e.stopPropagation();
-                       navigate("/products");
+                      navigate("/products");
                     }}
                     className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-gray-900 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-blue-600"
                   >
@@ -298,7 +298,7 @@ function Desktop() {
 
             <button
               onClick={() => navigate("/contact")}
-             className="rounded-2xl bg-white px-6 py-3 text-sm font-bold text-gray-900 transition hover:bg-blue-50">
+              className="rounded-2xl bg-white px-6 py-3 text-sm font-bold text-gray-900 transition hover:bg-blue-50">
               Contact Now
             </button>
           </div>

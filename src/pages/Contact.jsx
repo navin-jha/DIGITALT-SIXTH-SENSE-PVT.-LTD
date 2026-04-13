@@ -4,9 +4,9 @@ import {
     FaEnvelope,
     FaPhoneAlt,
     FaMapMarkerAlt,
-    FaPaperPlane,
 } from "react-icons/fa";
 import { ArrowRight, Building2, Mail, PhoneCall } from "lucide-react";
+import ContactCard from "@/components/ui/ContactCard";
 
 import contactUs from "../assets/contactUs.jpg";
 import headOffice from "../assets/headOffice.png";
@@ -121,6 +121,7 @@ function Contact() {
                 </div>
             </section>
 
+            {/* Contact Form + Info */}
             <section
                 id="contact-form"
                 className="relative z-10 -mt-12 px-6 pb-10 md:px-10 lg:px-16"
@@ -141,37 +142,7 @@ function Contact() {
                             </p>
                         </div>
 
-                        <form className="grid gap-4">
-                            <div className="grid gap-4 md:grid-cols-2">
-                                <input
-                                    type="text"
-                                    placeholder="Your Name"
-                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
-                                />
-                                <input
-                                    type="email"
-                                    placeholder="Your Email"
-                                    className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
-                                />
-                            </div>
-
-                            <input
-                                type="text"
-                                placeholder="Subject"
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
-                            />
-
-                            <textarea
-                                rows="5"
-                                placeholder="Your Message"
-                                className="w-full rounded-2xl border border-gray-200 bg-gray-50 px-4 py-3 text-sm outline-none transition focus:border-blue-400 focus:bg-white focus:ring-4 focus:ring-blue-100"
-                            />
-
-                            <button className="inline-flex items-center justify-center gap-2 rounded-2xl bg-gray-900 px-6 py-3.5 text-sm font-semibold text-white transition hover:bg-blue-600">
-                                Send Message
-                                <FaPaperPlane size={14} />
-                            </button>
-                        </form>
+                        <ContactCard />
                     </div>
 
                     {/* Contact Info Card */}
@@ -197,10 +168,10 @@ function Contact() {
                                     <div>
                                         <p className="text-xs text-slate-300">Email Address</p>
                                         <a
-                                            href="mailto:info@company.com"
+                                            href="mailto:digitaltsixthsense304@gmail.com"
                                             className="mt-1 block text-sm font-semibold text-white hover:text-blue-300"
                                         >
-                                            info@company.com
+                                            digitaltsixthsense304@gmail.com
                                         </a>
                                     </div>
                                 </div>
@@ -224,7 +195,12 @@ function Contact() {
                                             className="flex items-center gap-3 rounded-xl bg-white/5 px-3 py-2.5"
                                         >
                                             <PhoneCall size={15} className="text-blue-300" />
-                                            <span className="text-sm text-slate-100">{num}</span>
+                                            <a
+                                                href={`tel:${num.replace(/\s+/g, "")}`}
+                                                className="text-sm text-slate-100 hover:text-blue-300"
+                                            >
+                                                {num}
+                                            </a>
                                         </div>
                                     ))}
                                 </div>
@@ -336,7 +312,7 @@ function Contact() {
                         </div>
 
                         <a
-                            href="mailto:info@company.com"
+                            href="mailto:digitaltsixthsense304@gmail.com"
                             className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-blue-700 transition hover:bg-blue-50"
                         >
                             Email Us

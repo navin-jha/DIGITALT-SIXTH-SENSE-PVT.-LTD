@@ -9,7 +9,7 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Products from "./pages/Products";
 
-import Laptop from "./components/products/Leptop";
+import Laptop from "./components/products/Laptop";
 import Desktop from "./components/products/Desktop";
 import InteractivePanel from "./components/products/panel";
 import Electronic from "./components/products/Electronic";

@@ -184,104 +184,75 @@ function Desktop() {
       </section>
 
       {/* Product Section */}
-      <section className="px-6 py-10 md:px-10 lg:px-16 lg:py-14">
-        <div className="mx-auto max-w-7xl">
-          <div className="mb-10 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-600">
-                Our Collection
-              </p>
-              <h2 className="mt-2 text-3xl font-extrabold text-gray-900 md:text-4xl">
-                Desktop Products
-              </h2>
-              <p className="mt-3 max-w-2xl text-gray-600">
-                Choose from trusted desktop brands built for professional work,
-                office environments, and efficient day-to-day business use.
-              </p>
-            </div>
+      <div className="grid m-16 grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
+        {products.map((item) => (
+          <div
+            key={item.id}
+            onClick={() => navigate(`/product/${item.id}`)}
+            className="group cursor-pointer overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
+          >
+            {/* Top Visual */}
+            <div className="relative overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-100 p-6">
+              <div className="absolute right-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-semibold text-gray-700 shadow">
+                {item.tag}
+              </div>
 
-            <div className="rounded-2xl border border-blue-100 bg-blue-50 px-4 py-3 text-sm font-medium text-blue-700">
-              3 premium desktop models available
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-3">
-            {products.map((item) => (
-              <div
-                key={item.id}
-                onClick={() => navigate(`/product/${item.id}`)}
-                className="group cursor-pointer overflow-hidden rounded-[28px] border border-gray-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-2 hover:shadow-2xl"
-              >
-                {/* Top Visual */}
-                <div className="relative overflow-hidden bg-gradient-to-br from-slate-100 via-blue-50 to-cyan-100 p-6">
-                  <div className="absolute right-4 top-4 rounded-full bg-white px-3 py-1 text-xs font-semibold text-gray-700 shadow">
-                    {item.tag}
+              <div className="flex h-52 items-center justify-center">
+                <div className="relative flex h-28 w-28 items-center justify-center rounded-[28px] bg-white shadow-lg transition duration-300 group-hover:scale-110">
+                  <Monitor className="text-blue-600" size={52} />
+                  <div className="absolute -right-2 -top-2 rounded-full bg-yellow-400 p-2 shadow-md">
+                    <Star size={14} className="fill-white text-white" />
                   </div>
-
-                  <div className="flex h-52 items-center justify-center">
-                    <div className="relative flex h-28 w-28 items-center justify-center rounded-[28px] bg-white shadow-lg transition duration-300 group-hover:scale-110 group-hover:rotate-3">
-                      <Monitor className="text-blue-600" size={52} />
-                      <div className="absolute -right-2 -top-2 rounded-full bg-yellow-400 p-2 shadow-md">
-                        <Star size={14} className="fill-white text-white" />
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Content */}
-                <div className="p-6">
-                  <div className="mb-3 inline-flex rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
-                    {item.brand}
-                  </div>
-
-                  <h3 className="text-xl font-bold text-gray-900 transition group-hover:text-blue-600">
-                    {item.name}
-                  </h3>
-
-                  <p className="mt-3 text-sm leading-6 text-gray-600">
-                    {item.description}
-                  </p>
-
-                  <div className="mt-5 flex flex-wrap gap-2">
-                    {item.specs.map((spec, index) => (
-                      <span
-                        key={index}
-                        className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
-                      >
-                        {spec}
-                      </span>
-                    ))}
-                  </div>
-
-                  <div className="mt-6 flex items-center justify-between">
-                    <div>
-                      <p className="text-xs text-gray-500">Price</p>
-                      <p className="text-lg font-bold text-blue-600">
-                        Contact for price
-                      </p>
-                    </div>
-                  </div>
-
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      navigate("/products");
-                    }}
-                    className="mt-6 flex w-full items-center justify-center gap-2 rounded-2xl bg-gray-900 px-4 py-3 text-sm font-semibold text-white transition duration-300 hover:bg-blue-600"
-                  >
-                    View Details
-                    <ArrowRight size={16} />
-                  </button>
                 </div>
               </div>
-            ))}
+            </div>
+
+            {/* Content */}
+            <div className="p-6">
+              <div className="mb-3 inline-flex rounded-full bg-gray-100 px-3 py-1 text-xs font-semibold text-gray-700">
+                {item.brand}
+              </div>
+
+              <h3 className="text-xl font-bold text-gray-900 transition group-hover:text-blue-600">
+                {item.name}
+              </h3>
+
+              <p className="mt-3 text-sm leading-6 text-gray-600">
+                {item.description}
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2">
+                {item.specs.map((spec, index) => (
+                  <span
+                    key={index}
+                    className="rounded-full border border-blue-100 bg-blue-50 px-3 py-1 text-xs font-medium text-blue-700"
+                  >
+                    {spec}
+                  </span>
+                ))}
+              </div>
+
+              {/* Price only (no button) */}
+              <div className="mt-6 flex items-center justify-between">
+                <div>
+                  <p className="text-xs text-gray-500">Price</p>
+                  <p className="text-lg font-bold text-blue-600">
+                    Contact for price
+                  </p>
+                </div>
+
+                <span className="text-sm text-blue-600 font-semibold opacity-0 group-hover:opacity-100 transition">
+                  View →
+                </span>
+              </div>
+            </div>
           </div>
-        </div>
-      </section>
+        ))}
+      </div>
 
       {/* CTA Section */}
       <section className="px-6 pb-14 md:px-10 lg:px-16">
-        <div className="mx-auto max-w-7xl rounded-[32px] bg-gradient-to-r from-gray-900 via-slate-900 to-blue-900 p-8 text-white shadow-2xl md:p-12">
+        <div className="mx-auto max-w-full rounded-[32px] bg-gradient-to-r from-gray-900 via-slate-900 to-blue-900 p-8 text-white shadow-2xl md:p-12">
           <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
             <div>
               <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-200">

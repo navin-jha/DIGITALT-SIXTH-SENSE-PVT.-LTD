@@ -63,6 +63,8 @@ function Contact() {
                 <img
                     src={contactUs}
                     alt="Contact Us"
+                    loading="eager"
+                    fetchPriority="high"
                     className="absolute inset-0 h-full w-full object-cover"
                 />
 
@@ -230,7 +232,7 @@ function Contact() {
                 id="locations"
                 className="px-6 py-10 md:px-10 lg:px-16 lg:py-14"
             >
-                <div className="mx-auto max-w-7xl">
+                <div className="mx-auto max-w-full">
                     <div className="mb-10 text-center">
                         <div className="mb-3 inline-flex rounded-full bg-blue-50 px-4 py-2 text-sm font-semibold text-blue-700">
                             Our Offices
@@ -244,7 +246,7 @@ function Contact() {
                         </p>
                     </div>
 
-                    <div className="grid gap-8 sm:grid-cols-2 xl:grid-cols-3">
+                    <div className="grid gap-8 mx-w-full sm:grid-cols-2 xl:grid-cols-3">
                         {offices.map((office, index) => (
                             <motion.div
                                 key={index}
@@ -295,28 +297,50 @@ function Contact() {
             </section>
 
             {/* Bottom CTA */}
-            <section className="px-6 pb-14 md:px-10 lg:px-16">
-                <div className="mx-auto max-w-7xl rounded-[32px] bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-500 p-8 text-white shadow-2xl md:p-12">
-                    <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                        <div className="max-w-2xl">
-                            <p className="text-sm font-semibold uppercase tracking-[0.2em] text-blue-100">
-                                Let’s Talk
-                            </p>
-                            <h3 className="mt-2 text-2xl font-extrabold md:text-3xl">
-                                Ready to connect with our team?
-                            </h3>
-                            <p className="mt-3 text-sm leading-7 text-blue-50 md:text-base">
-                                Contact us today for inquiries, support, or business
-                                discussions. We’re always happy to help.
-                            </p>
-                        </div>
+            <section className="px-6 pb-16 md:px-10 lg:px-16">
+                <div className="mx-auto max-w-7xl  items-start">
+                    <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-blue-600 via-cyan-500 to-sky-500 px-6 py-10 text-white shadow-2xl md:px-10 md:py-12">
 
-                        <a
-                            href="mailto:digitaltsixthsense304@gmail.com"
-                            className="inline-flex items-center justify-center rounded-2xl bg-white px-6 py-3 text-sm font-bold text-blue-700 transition hover:bg-blue-50"
-                        >
-                            Email Us
-                        </a>
+                        {/* soft glow */}
+                        <div className="absolute -top-20 right-0 h-56 w-56 rounded-full bg-white/10 blur-3xl" />
+                        <div className="absolute -bottom-24 left-10 h-64 w-64 rounded-full bg-blue-300/10 blur-3xl" />
+
+                        <div className="relative z-10 flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+
+                            {/* Text */}
+                            <div className="max-w-2xl">
+                                <p className="text-xs font-semibold uppercase tracking-[0.2em] text-blue-100">
+                                    Let’s Talk
+                                </p>
+
+                                <h3 className="mt-3 text-2xl font-extrabold leading-tight md:text-3xl">
+                                    Ready to connect with our team?
+                                </h3>
+
+                                <p className="mt-4 text-sm leading-7 text-blue-50 md:text-base">
+                                    Contact us today for inquiries, support, or business discussions.
+                                    Our team is ready to assist you with the right solutions.
+                                </p>
+                            </div>
+
+                            {/* Buttons */}
+                            <div className="flex flex-col gap-3 sm:flex-row">
+                                <a
+                                    href="mailto:digitaltsixthsense304@gmail.com"
+                                    className="inline-flex items-center justify-center rounded-full bg-white px-7 py-3 text-sm font-semibold text-blue-700 shadow-md transition-all duration-300 hover:bg-blue-50"
+                                >
+                                    Email Us
+                                </a>
+
+                                <a
+                                    href="tel:+918150840094"
+                                    className="inline-flex items-center justify-center rounded-full border border-white/30 px-7 py-3 text-sm font-semibold text-white transition-all duration-300 hover:bg-white hover:text-blue-700"
+                                >
+                                    Call Now
+                                </a>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </section>

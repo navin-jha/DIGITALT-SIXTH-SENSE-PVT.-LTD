@@ -10,6 +10,7 @@ import LatestElectronics2 from "../../assets/LatestElectronics1.jpg";
 
 import laptops from "../../assets/laptops.jpg";
 import SmartTvs from "../../assets/SmartTvs.jpg";
+import Desktop from "../../assets/Desktop.jpg";
 
 const categories = [
   {
@@ -26,7 +27,7 @@ const categories = [
   },
   {
     name: "Desktops",
-    img: LatestElectronics2,
+    img: Desktop,
     desc: "Reliable desktop systems for office and personal use.",
     icon: Cpu,
   },
@@ -49,6 +50,8 @@ function Electronic() {
           <img
             src={ElectronicImg}
             alt="Electronic Products"
+            loading="eager"
+            fetchPriority="high"
             className="w-full h-full object-cover"
           />
 

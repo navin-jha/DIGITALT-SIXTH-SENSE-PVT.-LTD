@@ -1,46 +1,93 @@
 import React from 'react';
 import { motion } from "framer-motion";
-import aboutus from "../assets/aboutUs.jpg";
+import aboutBackground from "../assets/aboutBackground.jpg";
 import businessImg from "../assets/businessImg.jpg";
 import Ourmission from "../assets/OurMission.jpg";
 import OurVision from "../assets/OurVision.jpg";
 import OurPrincipal from "../assets/OurPrincipal.jpg";
 import companyData from "../assets/companyData.jpg";
 import WhyChoose from "../assets/WhyChoose.jpg";
+import Products from './Products';
 
 function About() {
     return (
         <div className="overflow-hidden">
 
-            {/* 🔹 Hero Section */}
-            <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+            <section className="relative w-full min-h-screen flex items-center ">
+                {/* Background Image */}
                 <img
-                    src={aboutus}
+                    src={aboutBackground}
                     alt="About Us"
-                    className="absolute top-0 left-0 w-full h-full object-cover z-0"
+                    loading="eager"
+                    fetchPriority="high"
+                    className="absolute inset-0 w-full h-full object-cover object-[72%_center]"
                 />
-                <div className="absolute inset-0 bg-black/50 z-10"></div>
 
-                <div className="relative z-20 max-w-3xl mx-auto px-4 text-center">
-                    <motion.h1
-                        initial={{ opacity: 0, y: -50 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight text-white"
-                    >
-                        Welcome to Digital Sixth Sense Pvt. Ltd.
-                    </motion.h1>
+                {/* Soft left fade for text readability */}
+                <div className="absolute inset-0 z-10 bg-gradient-to-r from-[#f5f5f3]/95 via-[#f5f5f3]/82 to-transparent" />
 
-                    <motion.p
-                        initial={{ opacity: 0, y: 40 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.3 }}
-                        className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-gray-100"
-                    >
-                        Founded in 2018, <strong>Digital Sixth Sense Pvt. Ltd.</strong> is a technology-driven company committed to
-                        providing cutting-edge electronic and IT solutions across India. We empower industries, educational institutions,
-                        and government organizations to stay ahead with innovative and reliable technology.
-                    </motion.p>
+                {/* Extra subtle luxury layer */}
+                <div className="absolute inset-0 z-10 bg-[linear-gradient(to_bottom,rgba(255,255,255,0.10),rgba(0,0,0,0.12))]" />
+
+                {/* Content */}
+                <div className="relative z-20 max-w-7xl mx-auto w-full px-6 sm:px-10 lg:px-16">
+                    <div className="max-w-2xl">
+                        <motion.span
+                            initial={{ opacity: 0, y: 20 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.5 }}
+                            className="inline-block px-4 py-1.5 rounded-full border border-black/10 bg-white/60 backdrop-blur-sm text-sm font-medium tracking-[0.15em] uppercase text-red-600 shadow-sm"
+                        >
+                            About Our Company
+                        </motion.span>
+
+                        <motion.h1
+                            initial={{ opacity: 0, x: -50 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ duration: 0.8 }}
+                            className="mt-6 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] tracking-tight text-[#111827]"
+                        >
+                            Digital Sixth Sense
+                        </motion.h1>
+
+                        <motion.div
+                            initial={{ width: 0 }}
+                            animate={{ width: "92px" }}
+                            transition={{ delay: 0.35, duration: 0.6 }}
+                            className="h-1.5 bg-red-600 mt-5 rounded-full shadow-sm"
+                        />
+
+                        <motion.p
+                            initial={{ opacity: 0, x: -35 }}
+                            animate={{ opacity: 1, x: 0 }}
+                            transition={{ delay: 0.2, duration: 0.7 }}
+                            className="mt-7 text-[15px] sm:text-lg md:text-xl leading-8 text-[#374151] max-w-xl"
+                        >
+                            Founded in 2018, <strong className="text-[#111827]">Digital Sixth Sense Pvt. Ltd.</strong> is a
+                            technology-driven company delivering advanced electronic and IT solutions across India.
+                            We empower industries, institutions, and government organizations with innovative,
+                            reliable, and future-ready technology.
+                        </motion.p>
+
+                        <motion.div
+                            initial={{ opacity: 0, y: 24 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            transition={{ delay: 0.45, duration: 0.7 }}
+                            className="mt-10 flex flex-wrap gap-4"
+                        >
+                            <button 
+                                onClick={() => window.location.href = "/products"}
+                                className="px-7 py-3.5 rounded-full bg-red-600 text-white font-semibold shadow-lg shadow-red-600/20 hover:bg-red-700 transition-all duration-300">
+                                Explore Services
+                            </button>
+
+                            <button
+                                onClick={() => window.location.href = "/contact"}
+                                className="px-7 py-3.5 rounded-full border border-[#111827]/15 bg-white/70 backdrop-blur-sm text-[#111827] font-semibold hover:bg-white transition-all duration-300 shadow-sm">
+                                Contact Us
+                            </button>
+                        </motion.div>
+                    </div>
                 </div>
             </section>
 

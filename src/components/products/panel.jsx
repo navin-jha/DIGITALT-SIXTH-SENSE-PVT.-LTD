@@ -54,6 +54,8 @@ function InteractivePanel() {
           <img
             src={interactivePanel}
             alt="Interactive panel"
+            loading="eager"
+            fetchPriority="high"
             className="h-full w-full object-cover"
           />
 

@@ -22,66 +22,70 @@ function Solar() {
     const products = [
         {
             title: "High Efficiency Panel",
-            desc: "Durable solar panel with maximum energy output.",
+            desc: "Durable solar panel designed for higher energy output and long-term outdoor performance.",
             img: HighEfficiencyPanel,
         },
         {
             title: "Solar Inverter",
-            desc: "Smart inverter for efficient energy conversion.",
+            desc: "Smart solar inverter for stable and efficient energy conversion in residential and commercial setups.",
             img: SolarInverter,
         },
         {
             title: "Solar Battery",
-            desc: "Reliable battery for long-lasting backup.",
+            desc: "Reliable solar battery backup solution built for dependable storage and longer energy support.",
             img: SolarBattery,
         },
     ];
 
     return (
-        <div className="min-h-screen bg-green-50 text-gray-900">
+        <div className="min-h-screen bg-white text-slate-900">
             {/* Hero Section */}
             <section className="relative overflow-hidden">
-                <div className="relative w-full h-[60vh] md:h-[72vh]">
+                <div className="relative h-[72vh] min-h-[520px] w-full">
                     <img
                         src={SolarImg}
                         alt="Solar Products"
-                        className="w-full h-full object-cover"
+                        loading="eager"
                         fetchPriority="high"
                         decoding="async"
+                        className="absolute inset-0 h-full w-full object-cover object-center"
                     />
 
-                    <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/50 to-black/30" />
+                    <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(3,7,18,0.78)_0%,rgba(3,7,18,0.58)_38%,rgba(3,7,18,0.18)_100%)]" />
 
-                    <div className="absolute inset-0 flex items-center justify-center text-center px-4">
-                        <div className="max-w-3xl">
-                            <div className="mb-5 inline-flex rounded-full border border-white/20 bg-white/10 px-4 py-2 text-sm text-white backdrop-blur-md">
-                                Clean & Renewable Energy Solutions
-                            </div>
+                    <div className="relative z-10 flex h-full items-center">
+                        <div className="mx-auto w-full max-w-7xl px-6 md:px-10 lg:px-16">
+                            <div className="max-w-3xl">
+                                <div className="mb-5 inline-flex rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-medium tracking-[0.18em] text-white/90 backdrop-blur-sm uppercase">
+                                    Clean & Renewable Energy
+                                </div>
 
-                            <h1 className="text-white text-4xl md:text-6xl font-bold mb-5 leading-tight">
-                                Clean & Renewable Energy
-                            </h1>
+                                <h1 className="max-w-2xl text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+                                    Smart Solar Solutions for Modern Energy Needs
+                                </h1>
 
-                            <p className="text-gray-200 max-w-2xl mx-auto mb-8 text-base md:text-lg leading-7">
-                                Power your home and business with efficient, eco-friendly solar
-                                solutions built for long-term performance and savings.
-                            </p>
+                                <p className="mt-6 max-w-2xl text-sm leading-7 text-slate-200 sm:text-base md:text-lg">
+                                    Power your home and business with efficient, eco-friendly solar
+                                    systems built for long-term performance, energy savings, and
+                                    dependable backup.
+                                </p>
 
-                            <div className="flex flex-wrap justify-center gap-4">
-                                <Button
-                                    onClick={() => navigate("/products")}
-                                    className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-xl shadow-lg"
-                                >
-                                    Explore Solar Products
-                                </Button>
+                                <div className="mt-8 flex flex-wrap gap-4">
+                                    <Button
+                                        onClick={() => navigate("/products")}
+                                        className="h-12 rounded-full bg-green-600 px-7 text-white shadow-lg shadow-green-700/20 transition-all duration-300 hover:bg-green-700"
+                                    >
+                                        Explore Products
+                                    </Button>
 
-                                <Button
-                                    variant="outline"
-                                    onClick={() => navigate("/products")}
-                                    className="border-white text-white bg-white/10 hover:bg-white/20 rounded-xl px-6 py-3"
-                                >
-                                    Browse Collection
-                                </Button>
+                                    <Button
+                                        variant="outline"
+                                        onClick={() => navigate("/products")}
+                                        className="h-12 rounded-full border-white/30 bg-white/10 px-7 text-white backdrop-blur-sm transition-all duration-300 hover:bg-white hover:text-slate-900"
+                                    >
+                                        Browse Collection
+                                    </Button>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -89,78 +93,79 @@ function Solar() {
             </section>
 
             {/* Categories */}
-            <section className="py-14 px-6 md:px-16">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-10">
-                        <div className="inline-flex rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700 mb-4">
+            <section className="py-16 md:py-20">
+                <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+                    <div className="mx-auto mb-10 max-w-3xl text-center">
+                        <span className="inline-flex rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
                             Solar Categories
-                        </div>
+                        </span>
 
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
                             Explore by Category
                         </h2>
 
-                        <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-                            Discover solar products designed for energy efficiency, reliable
-                            backup, and sustainable living.
+                        <p className="mt-4 text-base leading-7 text-slate-600">
+                            Discover solar products designed for energy efficiency, reliable backup,
+                            and sustainable everyday performance.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-5">
+                    <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
                         {categories.map((item, index) => (
-                            <div
+                            <button
                                 key={index}
                                 onClick={() => navigate("/products")}
-                                className="cursor-pointer rounded-2xl border border-green-100 bg-white p-6 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+                                className="rounded-2xl border border-slate-200 bg-white px-4 py-5 text-center text-sm font-semibold text-slate-700 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-green-300 hover:shadow-md"
                             >
-                                <h3 className="font-semibold text-gray-700">{item}</h3>
-                            </div>
+                                {item}
+                            </button>
                         ))}
                     </div>
                 </div>
             </section>
 
             {/* Featured Products */}
-            <section className="py-14 px-6 md:px-16 bg-white">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-10">
-                        <div className="inline-flex rounded-full bg-slate-100 px-4 py-2 text-sm font-medium text-slate-700 mb-4">
-                            Featured Solar Products
-                        </div>
+            <section className="bg-slate-50 py-16 md:py-20">
+                <div className="mx-auto max-w-full px-6 md:px-10 lg:px-16">
+                    <div className="mx-auto mb-12 max-w-3xl text-center">
+                        <span className="inline-flex rounded-full border border-slate-200 bg-white px-4 py-2 text-sm font-medium text-slate-700">
+                            Featured Products
+                        </span>
 
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
                             Popular Solar Picks
                         </h2>
 
-                        <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-                            Browse our featured solar products crafted for reliable
-                            performance, energy savings, and long-term value.
+                        <p className="mt-4 text-base leading-7 text-slate-600">
+                            Browse our featured solar products built for reliable performance,
+                            cleaner energy, and long-term value.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
                         {products.map((item, index) => (
                             <div
                                 key={index}
                                 onClick={() => navigate("/products")}
-                                className="group cursor-pointer overflow-hidden rounded-3xl border border-green-100 bg-green-50 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl"
+                                className="group cursor-pointer overflow-hidden rounded-[28px] border border-slate-200 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
                             >
-                                <div className="overflow-hidden">
+                                <div className="relative overflow-hidden">
                                     <img
                                         src={item.img}
                                         alt={item.title}
                                         loading="lazy"
                                         decoding="async"
-                                        className="w-full h-56 object-cover transition duration-500 group-hover:scale-105"
+                                        className="h-64 w-full object-cover transition-transform duration-500 group-hover:scale-[1.04]"
                                     />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 via-transparent to-transparent opacity-80" />
                                 </div>
 
-                                <div className="p-5">
-                                    <h3 className="text-xl font-semibold text-gray-800 mb-2">
+                                <div className="p-6">
+                                    <h3 className="text-xl font-semibold text-slate-900">
                                         {item.title}
                                     </h3>
 
-                                    <p className="text-gray-500 text-sm mb-4 leading-6">
+                                    <p className="mt-3 text-sm leading-6 text-slate-600">
                                         {item.desc}
                                     </p>
 
@@ -169,7 +174,7 @@ function Solar() {
                                             e.stopPropagation();
                                             navigate("/products");
                                         }}
-                                        className="w-full bg-green-600 hover:bg-green-700 text-white rounded-xl"
+                                        className="mt-6 h-11 w-full rounded-full bg-green-600 text-white transition-all duration-300 hover:bg-green-700"
                                     >
                                         View Details
                                     </Button>
@@ -181,53 +186,55 @@ function Solar() {
             </section>
 
             {/* Why Solar */}
-            <section className="py-14 px-6 md:px-16">
-                <div className="max-w-7xl mx-auto">
-                    <div className="text-center mb-10">
-                        <div className="inline-flex rounded-full bg-green-100 px-4 py-2 text-sm font-medium text-green-700 mb-4">
+            <section className="py-16 md:py-20">
+                <div className="mx-auto max-w-7xl px-6 md:px-10 lg:px-16">
+                    <div className="mx-auto mb-12 max-w-3xl text-center">
+                        <span className="inline-flex rounded-full border border-green-200 bg-green-50 px-4 py-2 text-sm font-medium text-green-700">
                             Why Solar
-                        </div>
+                        </span>
 
-                        <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
+                        <h2 className="mt-5 text-3xl font-bold tracking-tight text-slate-900 md:text-4xl">
                             Why Choose Solar Energy
                         </h2>
 
-                        <p className="mt-4 max-w-2xl mx-auto text-gray-600">
-                            Solar solutions help you save money, reduce environmental impact,
-                            and enjoy dependable energy for everyday use.
+                        <p className="mt-4 text-base leading-7 text-slate-600">
+                            Solar solutions help reduce bills, support a cleaner environment, and
+                            provide dependable energy for modern homes and businesses.
                         </p>
                     </div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                        <div className="rounded-3xl bg-white p-6 shadow-sm border border-green-100 text-center hover:shadow-lg transition">
-                            <h3 className="font-semibold text-lg mb-2 text-gray-800">
-                                Eco Friendly
-                            </h3>
-                            <p className="text-gray-500 text-sm leading-6">
-                                Reduce carbon footprint and support a cleaner environment.
-                            </p>
-                        </div>
-
-                        <div className="rounded-3xl bg-white p-6 shadow-sm border border-green-100 text-center hover:shadow-lg transition">
-                            <h3 className="font-semibold text-lg mb-2 text-gray-800">
-                                Cost Saving
-                            </h3>
-                            <p className="text-gray-500 text-sm leading-6">
-                                Lower electricity bills with smart and renewable energy use.
-                            </p>
-                        </div>
-
-                        <div className="rounded-3xl bg-white p-6 shadow-sm border border-green-100 text-center hover:shadow-lg transition">
-                            <h3 className="font-semibold text-lg mb-2 text-gray-800">
-                                Reliable Power
-                            </h3>
-                            <p className="text-gray-500 text-sm leading-6">
-                                Enjoy consistent and long-lasting energy solutions for your needs.
-                            </p>
-                        </div>
+                    <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+                        {[
+                            {
+                                title: "Eco Friendly",
+                                desc: "Reduce carbon footprint and support a cleaner and more sustainable environment.",
+                            },
+                            {
+                                title: "Cost Saving",
+                                desc: "Lower electricity bills through efficient and renewable solar energy usage.",
+                            },
+                            {
+                                title: "Reliable Power",
+                                desc: "Enjoy stable and long-lasting power support for daily residential and business needs.",
+                            },
+                        ].map((item, index) => (
+                            <div
+                                key={index}
+                                className="rounded-[28px] border border-slate-200 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-lg"
+                            >
+                                <div className="mb-4 h-12 w-12 rounded-2xl bg-green-50 ring-1 ring-green-100" />
+                                <h3 className="text-xl font-semibold text-slate-900">
+                                    {item.title}
+                                </h3>
+                                <p className="mt-3 text-sm leading-6 text-slate-600">
+                                    {item.desc}
+                                </p>
+                            </div>
+                        ))}
                     </div>
                 </div>
             </section>
+            
         </div>
     );
 }

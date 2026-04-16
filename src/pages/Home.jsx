@@ -28,12 +28,12 @@ import SBI from "../assets/SBI.jpg";
 import NPCIL from "../assets/NPCIL.png";
 import JharkhandGovt from "../assets/JharkhandGovt.jpg";
 
-import Catification1 from "../assets/catification1.png";
-import Catification2 from "../assets/catification2.png";
-import Catification3 from "../assets/catification3.png";
-import Catification4 from "../assets/catification4.png";
-import Catification5 from "../assets/catification5.png";
-import Catification6 from "../assets/catification6.png";
+import Catification1 from "../assets/Catification1.png";
+import Catification2 from "../assets/Catification2.png";
+import Catification3 from "../assets/Catification3.png";
+import Catification4 from "../assets/Catification4.png";
+import Catification5 from "../assets/Catification5.png";
+import Catification6 from "../assets/Catification6.png";
 
 const PRODUCTS = [
     {

@@ -1,10 +1,11 @@
-import React, { memo, useMemo } from "react";
+import React, { memo, useMemo, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import ContactCard from "@/components/ui/ContactCard";
 import IndustriesSection from "@/components/ui/IndustriesSection";
 import { useState } from "react";
 import { AnimatePresence } from "framer-motion";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 
 import SmartTvs from "../assets/SmartTvs.jpg";
 import laptops from "../assets/laptops.jpg";
@@ -26,6 +27,13 @@ import NTPC from "../assets/NTPC.png";
 import SBI from "../assets/SBI.jpg";
 import NPCIL from "../assets/NPCIL.png";
 import JharkhandGovt from "../assets/JharkhandGovt.jpg";
+
+import Catification1 from "../assets/catification1.png";
+import Catification2 from "../assets/catification2.png";
+import Catification3 from "../assets/catification3.png";
+import Catification4 from "../assets/catification4.png";
+import Catification5 from "../assets/catification5.png";
+import Catification6 from "../assets/catification6.png";
 
 const PRODUCTS = [
     {
@@ -117,6 +125,8 @@ const CERTIFICATIONS = [
     "MSME Recognition",
     "Make in India Focus",
     "Government Procurement Experience",
+    "Institutional Compliance Support",
+    "Trusted Business Recognition",
 ];
 
 const WHY_CHOOSE_US = [
@@ -124,13 +134,6 @@ const WHY_CHOOSE_US = [
     "Institutional and project-based supply capability",
     "Trusted support for government and enterprise sectors",
     "Future-ready, value-driven technology approach",
-];
-
-const PRESENCE_LOCATIONS = [
-    "Head Office - Noida",
-    "Branch Office - Ranchi",
-    "Regional Office - Varanasi",
-    "Registered Presence - New Delhi",
 ];
 
 const STRIP_ITEMS = [
@@ -204,10 +207,14 @@ const HeroSection = memo(function HeroSection({ products, stats }) {
                             transition={{ duration: 3, repeat: Infinity }}
                             className="mt-6 flex flex-col justify-center gap-4 sm:mt-8 sm:flex-row"
                         >
-                            <Button className="rounded-lg bg-blue-500 px-4 py-2 text-sm text-white shadow-lg hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-base">
+                            <Button
+                                onClick={() => window.location.href = "/products"}
+                                className="rounded-lg bg-blue-500 px-4 py-2 text-sm text-white shadow-lg hover:bg-blue-600 sm:px-6 sm:py-3 sm:text-base"
+                            >
                                 Explore Products
                             </Button>
                             <Button
+                                onClick={() => window.location.href = "/contact"}
                                 variant="outline"
                                 className="rounded-lg border-white bg-white/10 px-4 py-2 text-sm text-white shadow-lg hover:bg-white/20 sm:px-6 sm:py-3 sm:text-base"
                             >
@@ -490,15 +497,15 @@ const WhyChooseUsSection = memo(function WhyChooseUsSection({ items }) {
                                 onMouseEnter={() => setActiveIndex(index)}
                                 onClick={() => setActiveIndex(index)}
                                 className={`cursor-pointer rounded-3xl border p-6 text-left shadow-sm transition duration-300 ${isActive
-                                        ? "border-blue-500 bg-blue-50/60 shadow-lg"
-                                        : "border-gray-200 bg-white hover:-translate-y-1 hover:shadow-lg"
+                                    ? "border-blue-500 bg-blue-50/60 shadow-lg"
+                                    : "border-gray-200 bg-white hover:-translate-y-1 hover:shadow-lg"
                                     }`}
                             >
                                 <div className="flex items-start gap-3">
                                     <span
                                         className={`mt-1 flex h-6 w-6 items-center justify-center rounded-full text-sm font-bold transition ${isActive
-                                                ? "bg-blue-600 text-white"
-                                                : "bg-blue-100 text-blue-600"
+                                            ? "bg-blue-600 text-white"
+                                            : "bg-blue-100 text-blue-600"
                                             }`}
                                     >
                                         ✓
@@ -539,54 +546,105 @@ const WhyChooseUsSection = memo(function WhyChooseUsSection({ items }) {
     );
 });
 
+const CERTIFICATION_ITEMS = [
+    {
+        img: Catification1,
+    },
+    {
+        img: Catification2,
+    },
+    {
+        img: Catification3,
+    },
+    {
+        img: Catification4,
+    },
+    {
+        img: Catification5,
+    },
+    {
+        img: Catification6,
+    }
+];
 
-const CertificationsPresenceSection = memo(function CertificationsPresenceSection({
-    certifications,
-    locations,
-}) {
+const CertificationsPresenceSection = memo(function CertificationsPresenceSection() {
+    const [index, setIndex] = React.useState(0);
+    const [isPaused, setIsPaused] = React.useState(false);
+    const total = CERTIFICATION_ITEMS.length;
+
+    React.useEffect(() => {
+        if (isPaused) return; // pause logic
+
+        const interval = setInterval(() => {
+            setIndex((prev) => (prev + 1) % total);
+        }, 4000);
+
+        return () => clearInterval(interval);
+    }, [total, isPaused]);
+
+    const next = () => {
+        setIndex((prev) => (prev + 1) % total);
+    };
+
+    const prev = () => {
+        setIndex((prev) => (prev - 1 + total) % total);
+    };
+
     return (
-        <section className="bg-gray-50 px-4 py-12 sm:px-6 sm:py-16 md:px-8">
-            <div className="mx-auto grid max-w-6xl grid-cols-1 gap-8 lg:grid-cols-2">
-                <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-                    <h2 className="text-2xl font-bold sm:text-3xl">
-                        Recognition & Certifications
-                    </h2>
-                    <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">
-                        Our profile reflects alignment with national initiatives and
-                        institutional credibility.
-                    </p>
+        <section className="relative w-full overflow-hidden bg-slate-200 py-16">
 
-                    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {certifications.map((item) => (
-                            <div
-                                key={item}
-                                className="rounded-2xl border border-gray-200 bg-gray-50 p-4 font-medium text-gray-700"
-                            >
-                                {item}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            {/* LEFT ARROW */}
+            <button
+                onClick={prev}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="absolute left-6 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg backdrop-blur transition hover:scale-105"
+            >
+                ‹
+            </button>
 
-                <div className="rounded-3xl border border-gray-200 bg-white p-6 shadow-sm sm:p-8">
-                    <h2 className="text-2xl font-bold sm:text-3xl">Pan-India Presence</h2>
-                    <p className="mt-3 text-sm leading-7 text-gray-600 sm:text-base">
-                        With offices and operational presence across multiple cities, we
-                        support organizations with dependable product delivery and service
-                        coordination across India.
-                    </p>
+            {/* RIGHT ARROW */}
+            <button
+                onClick={next}
+                onMouseEnter={() => setIsPaused(true)}
+                onMouseLeave={() => setIsPaused(false)}
+                className="absolute right-6 top-1/2 z-20 -translate-y-1/2 rounded-full bg-white/90 p-3 shadow-lg backdrop-blur transition hover:scale-105"
+            >
+                ›
+            </button>
 
-                    <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2">
-                        {locations.map((item) => (
-                            <div
-                                key={item}
-                                className="rounded-2xl border border-gray-200 bg-gray-50 p-4 font-medium text-gray-700"
-                            >
-                                {item}
-                            </div>
-                        ))}
-                    </div>
-                </div>
+            {/* slider */}
+            <div className="w-full overflow-hidden">
+                <motion.div
+                    className="flex"
+                    animate={{ x: `-${index * 100}%` }}
+                    transition={{ duration: 0.8, ease: "easeInOut" }}
+                >
+                    {CERTIFICATION_ITEMS.map((item, i) => (
+                        <div
+                            key={i}
+                            className="w-full min-w-full flex items-center justify-center"
+                        >
+                            <img
+                                src={item.img}
+                                loading="lazy"
+                                className="w-full max-w-5xl h-[350px] sm:h-[420px] md:h-[480px] object-contain"
+                            />
+                        </div>
+                    ))}
+                </motion.div>
+            </div>
+
+            {/* dots */}
+            <div className="mt-6 flex justify-center gap-2">
+                {CERTIFICATION_ITEMS.map((_, i) => (
+                    <button
+                        key={i}
+                        onClick={() => setIndex(i)}
+                        className={`h-2.5 rounded-full transition-all ${index === i ? "w-8 bg-blue-600" : "w-2.5 bg-gray-300"
+                            }`}
+                    />
+                ))}
             </div>
         </section>
     );
@@ -604,9 +662,8 @@ const CtaSection = memo(function CtaSection() {
                         <img
                             src={contactUsHome}
                             alt="Contact Us"
-                            loading="lazy"
-                            decoding="async"
-                            fetchPriority="low"
+                            loading="eager"
+                            fetchPriority="high"
                             className="h-64 w-full object-cover sm:h-72 md:h-80"
                         />
                     </div>
@@ -637,20 +694,16 @@ const Home = () => {
         <div className="overflow-hidden bg-white text-gray-900">
             <HeroSection products={PRODUCTS} stats={STATS} />
             <MovingStrip items={STRIP_ITEMS} />
-            <ClientsSection duplicatedClients={duplicatedClients} />
-            <FeaturedSolutionsSection duplicatedProducts={duplicatedProducts} />
             <AboutSection />
             <HighlightsSection highlights={HIGHLIGHTS} />
+            <FeaturedSolutionsSection duplicatedProducts={duplicatedProducts} />
             <MemoIndustriesSection industries={INDUSTRIES} />
             <WhyChooseUsSection items={WHY_CHOOSE_US} />
-            <CertificationsPresenceSection
-                certifications={CERTIFICATIONS}
-                locations={PRESENCE_LOCATIONS}
-            />
+            <ClientsSection duplicatedClients={duplicatedClients} />
+            <CertificationsPresenceSection certifications={CERTIFICATIONS} />
             <CtaSection />
         </div>
     );
 };
 
 export default Home;
-

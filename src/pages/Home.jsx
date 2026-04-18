@@ -564,7 +564,7 @@ const CERTIFICATION_ITEMS = [
     },
     {
         img: Catification6,
-    }
+    },
 ];
 
 const CertificationsPresenceSection = memo(function CertificationsPresenceSection() {

@@ -41,9 +41,9 @@ const Header = () => {
         <NavLink to="/" className="flex items-center gap-3 group shrink-0">
           <div className="flex items-center justify-center overflow-hidden ">
             <img
-              src="/logo.png"
+              src="/headerLogo.png"
               alt="Logo"
-              className="h-14 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+              className="h-4 sm:h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
             />
           </div>
 
